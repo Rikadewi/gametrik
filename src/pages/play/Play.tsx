@@ -25,20 +25,20 @@ const Play = () => {
                                     }}
                                     onClick={() => {
                                         setInit(false);
+                                        setRecord(true);
                                     }}
                                 >
                                     Rekam
                                 </CustomButton>
                                 <CustomButton
+                                    danger
                                     style={{
                                         height: '42px',
                                         margin: '1em',
                                         width: '9em',
-                                        backgroundColor: 'var(--ion-color-danger)',
                                     }}
                                     onClick={() => {
                                         setInit(false);
-                                        setRecord(false);
                                     }}
                                 >
                                     Tidak
@@ -62,10 +62,10 @@ const Play = () => {
                     </div>
                     <NoDecorLink to="/review">
                         <CustomButton
+                            danger
                             style={{
                                 width: 'auto',
                                 padding: '0 3em',
-                                backgroundColor: 'var(--ion-color-danger)',
                             }}
                         >
                             Selesai

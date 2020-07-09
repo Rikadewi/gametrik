@@ -36,3 +36,12 @@
 .custom-button.orange:hover {
     background-color: var(--ion-color-tertiary-tint);
 }
+
+.custom-button.danger {
+    background-color: var(--ion-color-danger);
+    color: white;
+}
+
+.custom-button.danger:hover {
+    background-color: var(--ion-color-danger-tint);
+}
