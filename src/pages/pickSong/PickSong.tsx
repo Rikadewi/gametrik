@@ -30,8 +30,8 @@ const Song = ({ level, src, name }: any) => {
     return (
         <div id="song">
             <div className="song-wrapper">
-                <NoDecorLink to="/feed">
-                    <img src={src} />
+                <NoDecorLink to="/play">
+                    <img src={src} alt="song-img" />
                 </NoDecorLink>
                 <p className="song-name">{name}</p>
                 <div>{temp}</div>

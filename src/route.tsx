@@ -14,8 +14,11 @@ import { playCircle, settings, musicalNotes } from 'ionicons/icons';
 
 /* Import Pages */
 import Home from './pages/home/Home';
-import Feed from './pages/scan/Scan';
+import Play from './pages/play/Play';
 import PickSong from './pages/pickSong/PickSong';
+import Gallery from './pages/gallery/Gallery';
+import Review from './pages/review/Review';
+import Setting from './pages/setting/Setting';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -54,9 +57,12 @@ const App: React.FC = () => (
 
                         {/* Menu Page */}
                         <Route path="/home" component={Home} exact />
-                        <Route path="/feed" component={Feed} exact />
                         <Route path="/train" component={Train} exact />
                         <Route path="/test" component={Test} exact />
+                        <Route path="/play" component={Play} exact />
+                        <Route path="/setting" component={Setting} exact />
+                        <Route path="/gallery" component={Gallery} exact />
+                        <Route path="/Review" component={Review} exact />
                     </Switch>
                 </IonRouterOutlet>
 
@@ -65,11 +71,11 @@ const App: React.FC = () => (
                         <IonIcon icon={playCircle} />
                         <IonLabel>Play</IonLabel>
                     </IonTabButton>
-                    <IonTabButton tab="gallery" href="/feed">
+                    <IonTabButton tab="gallery" href="/gallery">
                         <IonIcon icon={musicalNotes} />
                         <IonLabel>Gallery</IonLabel>
                     </IonTabButton>
-                    <IonTabButton tab="settings" href="/feed">
+                    <IonTabButton tab="settings" href="/setting">
                         <IonIcon icon={settings} />
                         <IonLabel>Settings</IonLabel>
                     </IonTabButton>
