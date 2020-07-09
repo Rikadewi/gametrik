@@ -12,7 +12,7 @@ const Home = () => {
                 <div id="home" style={{ backgroundImage: `url(${Background})` }}>
                     <h2 className="home-title">Pilih Menu</h2>
 
-                    <NoDecorLink to="/train" style={{ width: '70%' }}>
+                    <NoDecorLink to="/play" style={{ width: '70%' }}>
                         <CustomButton style={{ marginBottom: '1em' }}>Free Mode</CustomButton>
                     </NoDecorLink>
                     <NoDecorLink to="/train" style={{ width: '70%' }}>
