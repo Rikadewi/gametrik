@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "fe-maranatha",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}

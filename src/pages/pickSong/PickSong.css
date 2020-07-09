@@ -1,0 +1,41 @@
+#pick-song {
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    background-position-y: -150px;
+    background-position-x: center
+}
+
+#pick-song .pick-song-widget{
+    overflow-y: scroll;
+    width: 100%;
+}
+
+#pick-song .pick-song-wrapper{
+    display: flex;
+    width: max-content;
+}
+
+#pick-song .pick-title {
+    padding: 0 var(--ion-padding);
+}
+
+#pick-song .pick-song-played {
+    margin-bottom: 2em;
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-position-y: 19%;
+    background-position-x: -100px;
+}
+
+/* Song */
+#song .song-wrapper{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#song p.song-name {
+    margin-top: 0;
+}
+
