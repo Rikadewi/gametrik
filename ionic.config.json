@@ -1,7 +1,7 @@
 {
-  "name": "fe-maranatha",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
+    "name": "gametrik",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "react"
 }

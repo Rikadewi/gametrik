@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "fe-maranatha",
+  "appName": "gamterix",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",

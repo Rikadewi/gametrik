@@ -1,5 +1,5 @@
 {
-    "name": "fe-maranatha",
+    "name": "gametrik",
     "version": "0.0.1",
     "private": true,
     "dependencies": {
@@ -68,5 +68,5 @@
         "stylelint": "^13.6.0",
         "stylelint-config-standard": "^20.0.0"
     },
-    "description": "An Ionic project"
+    "description": "Gametrik Project"
 }
