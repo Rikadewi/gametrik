@@ -8,7 +8,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-shade: #95bbb8;
   --ion-color-primary-tint: #70a4a0;
 
   /** secondary **/
@@ -16,7 +16,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-secondary-rgb: 61, 194, 255;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #36abe0;
+  --ion-color-secondary-shade: #e5ffdf;
   --ion-color-secondary-tint: #9AEAC1;
 
   /** tertiary **/
@@ -24,7 +24,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-tertiary-rgb: 82, 96, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-shade: #ffdcac;
   --ion-color-tertiary-tint: #FFDBA9;
 
   /** success **/
@@ -76,8 +76,8 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-tint: #f5f6f9;
 
 
-  /** gray **/
   --ion-color-gray: #8A9EAD;
+  --ion-color-green: #5abd8c;
   
   /* Std */
   --ion-padding: 20px;
@@ -237,13 +237,13 @@ http://ionicframework.com/docs/theming/ */
 }
 
 @font-face {
-  font-family: SFPro;
-  src: url(../static/font/FontsFree-Net-SFProText-Regular.ttf);
+  font-family: Montserrat;
+  src: url(../static/font/Montserrat-SemiBold.ttf);
 }
 
 @font-face {
-  font-family: Montserrat;
-  src: url(../static/font/Montserrat-SemiBold.ttf);
+  font-family: Montserrat-Light;
+  src: url(../static/font/Montserrat-Light.ttf);
 }
 
 * {

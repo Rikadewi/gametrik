@@ -7,7 +7,7 @@ import NoDecorLink from '../../components/NoDecorLink/NoDecorLink';
 
 const Play = () => {
     const [init, setInit] = React.useState(true);
-    const [record, setRecord] = React.useState(true);
+    const [record, setRecord] = React.useState(false);
 
     return (
         <>
