@@ -4,6 +4,8 @@ import './Play.css';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import PlayIcon from './compass.png';
 import NoDecorLink from '../../components/NoDecorLink/NoDecorLink';
+import PlayBackground from './PlayBackground.png';
+import CompassBackground from './CompassBackground.png';
 
 const Play = () => {
     const [init, setInit] = React.useState(true);
@@ -47,9 +49,12 @@ const Play = () => {
                         </div>
                     </div>
                 )}
-                <div id="play">
+                <div id="play" style={{ backgroundImage: `url(${PlayBackground})` }}>
                     <div className="play-card">
-                        <div className="play-icon">
+                        <div
+                            className="play-icon"
+                            style={{ backgroundImage: `url(${CompassBackground})` }}
+                        >
                             <img src={PlayIcon} alt="play" />
                         </div>
                         <h1 className="play-title">Yuk Pukul Gametrikmu!</h1>

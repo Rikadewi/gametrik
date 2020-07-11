@@ -1,5 +1,7 @@
 #play {
-    background-color: #f2f1f1;
+    background-color: #00000069;
+    background-size: cover;
+    background-position: center;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -20,7 +22,9 @@
 }
 
 #play .play-icon {
-    background-color: var(--ion-color-tertiary);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     height: 12em;
     width: 12em;
     border-radius: 12em;
