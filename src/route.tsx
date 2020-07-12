@@ -11,6 +11,9 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { playCircle, personCircle, musicalNotes } from 'ionicons/icons';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from './store';
 
 /* Import Pages */
 import Home from './pages/home/Home';
@@ -48,41 +51,45 @@ const Test = () => {
 };
 
 const App: React.FC = () => (
-    <IonApp>
-        <IonReactRouter>
-            <IonTabs>
-                <IonRouterOutlet>
-                    <Switch>
-                        <Route path="/" render={() => <Redirect to="/home" />} exact />
+    <Provider store={store}>
+        <PersistGate persistor={persistor}>
+            <IonApp>
+                <IonReactRouter>
+                    <IonTabs>
+                        <IonRouterOutlet>
+                            <Switch>
+                                <Route path="/" render={() => <Redirect to="/home" />} exact />
 
-                        {/* Menu Page */}
-                        <Route path="/home" component={Home} exact />
-                        <Route path="/train" component={Train} exact />
-                        <Route path="/test" component={Test} exact />
-                        <Route path="/play" component={Play} exact />
-                        <Route path="/profile" component={Profile} exact />
-                        <Route path="/gallery" component={Gallery} exact />
-                        <Route path="/Review" component={Review} exact />
-                    </Switch>
-                </IonRouterOutlet>
+                                {/* Menu Page */}
+                                <Route path="/home" component={Home} exact />
+                                <Route path="/train" component={Train} exact />
+                                <Route path="/test" component={Test} exact />
+                                <Route path="/play" component={Play} exact />
+                                <Route path="/profile" component={Profile} exact />
+                                <Route path="/gallery" component={Gallery} exact />
+                                <Route path="/Review" component={Review} exact />
+                            </Switch>
+                        </IonRouterOutlet>
 
-                <IonTabBar slot="bottom">
-                    <IonTabButton tab="play" href="/home">
-                        <IonIcon icon={playCircle} />
-                        <IonLabel>Play</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="gallery" href="/gallery">
-                        <IonIcon icon={musicalNotes} />
-                        <IonLabel>Gallery</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="profile" href="/profile">
-                        <IonIcon icon={personCircle} />
-                        <IonLabel>Profile</IonLabel>
-                    </IonTabButton>
-                </IonTabBar>
-            </IonTabs>
-        </IonReactRouter>
-    </IonApp>
+                        <IonTabBar slot="bottom">
+                            <IonTabButton tab="play" href="/home">
+                                <IonIcon icon={playCircle} />
+                                <IonLabel>Play</IonLabel>
+                            </IonTabButton>
+                            <IonTabButton tab="gallery" href="/gallery">
+                                <IonIcon icon={musicalNotes} />
+                                <IonLabel>Gallery</IonLabel>
+                            </IonTabButton>
+                            <IonTabButton tab="profile" href="/profile">
+                                <IonIcon icon={personCircle} />
+                                <IonLabel>Profile</IonLabel>
+                            </IonTabButton>
+                        </IonTabBar>
+                    </IonTabs>
+                </IonReactRouter>
+            </IonApp>
+        </PersistGate>
+    </Provider>
 );
 
 export default App;
