@@ -46,7 +46,6 @@
 }
 
 #review .review-score-ring {
-    background-color: var(--ion-color-green);
     width: 12em;
     height: 12em;
     border-radius: 12em;
@@ -76,6 +75,26 @@
     font-family: Montserrat-Light;
 }
 
-#review .review-score-grade {
+#review .success .review-score-grade {
     color: var(--ion-color-green);
+}
+
+#review .success .review-score-ring {
+    background-color: var(--ion-color-green);
+}
+
+#review .warning .review-score-grade {
+    color: var(--ion-color-tertiary);
+}
+
+#review .warning .review-score-ring {
+    background-color: var(--ion-color-tertiary);
+}
+
+#review .danger .review-score-grade {
+    color: var(--ion-color-danger);
+}
+
+#review .danger .review-score-ring {
+    background-color: var(--ion-color-danger);
 }

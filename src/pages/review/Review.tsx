@@ -31,6 +31,24 @@ const Score = ({ score, color }: any) => {
 };
 
 const Review = ({ title }: any) => {
+    const accuracy = Math.floor(Math.random() * 5) + 1;
+    const tempo = Math.floor(Math.random() * 5) + 1;
+    const score = (accuracy + tempo) * 10;
+    let _class = '';
+    let grade = '';
+    if (score < 50) {
+        grade = 'Poor';
+        _class = 'danger';
+    } else if (score < 80) {
+        grade = 'Average';
+        _class = 'warning';
+    } else if (score < 100) {
+        grade = 'Good!';
+        _class = 'success';
+    } else {
+        grade = 'Perfect!';
+        _class = 'success';
+    }
     return (
         <>
             <IonContent>
@@ -42,21 +60,21 @@ const Review = ({ title }: any) => {
                         <h6>Analisis</h6>
                         <div className="review-score-row">
                             <p>Tempo</p>
-                            <Score score={3} color="tertiary" />
+                            <Score score={tempo} color="tertiary" />
                         </div>
                         <div className="review-score-row">
                             <p>Akurasi</p>
-                            <Score score={2} color="primary" />
+                            <Score score={accuracy} color="primary" />
                         </div>
                     </div>
-                    <div className="review-card score">
+                    <div className={`review-card score ${_class}`}>
                         <h6>Score</h6>
                         <div className="center">
                             <div className="review-score-ring center">
                                 <div className="review-score-ring-inside center">
                                     <div className="review-score-ring-text">
-                                        <p className="review-score-number">75</p>
-                                        <p className="review-score-grade">Good!</p>
+                                        <p className="review-score-number">{score}</p>
+                                        <p className="review-score-grade">{grade}</p>
                                     </div>
                                 </div>
                             </div>
