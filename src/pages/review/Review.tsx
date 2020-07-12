@@ -49,6 +49,7 @@ const Review = ({ title }: any) => {
         grade = 'Perfect!';
         _class = 'success';
     }
+
     return (
         <>
             <IonContent>
