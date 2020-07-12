@@ -32,7 +32,8 @@
         "lint:code": "eslint --ignore-path .gitignore --ext .ts,.tsx src/",
         "lint:css": "stylelint src/**/*.css",
         "lint": "npm run lint:code && npm run lint:css",
-        "lint:fix": "eslint --ignore-path .gitignore --ext .ts,.tsx src/ --fix && stylelint src/**/*.css --fix"
+        "lint:fix": "eslint --ignore-path .gitignore --ext .ts,.tsx src/ --fix && stylelint src/**/*.css --fix",
+        "serve": "serve -s build -l 3000"
     },
     "eslintConfig": {
         "extends": "react-app"
