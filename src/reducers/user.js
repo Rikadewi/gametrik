@@ -1,7 +1,8 @@
-import { MODE_UPDATE } from '../actions/types';
+import { MODE_UPDATE, TITLE_UPDATE } from '../actions/types';
 
 const initialState = {
     mode: '',
+    title: '',
 };
 
 const userReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 mode: action.mode,
+            };
+        case TITLE_UPDATE:
+            return {
+                ...state,
+                title: action.title,
             };
         default:
             return state;

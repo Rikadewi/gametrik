@@ -1,6 +1,7 @@
 import React from 'react';
 import { IonContent } from '@ionic/react';
 import './Review.css';
+import { connect } from 'react-redux';
 import Header from '../../components/Header/Header';
 import Background from './BackgroundReview.png';
 
@@ -29,13 +30,13 @@ const Score = ({ score, color }: any) => {
     return <div className="review-score-wrapper">{temp}</div>;
 };
 
-const Review = () => {
+const Review = ({ title }: any) => {
     return (
         <>
             <IonContent>
                 <div id="review" style={{ backgroundImage: `url(${Background})` }}>
                     <Header style={{ color: 'white', marginLeft: '1em' }} to="/home">
-                        Prau Layar
+                        {title}
                     </Header>
                     <div className="review-card analysis">
                         <h6>Analisis</h6>
@@ -67,4 +68,8 @@ const Review = () => {
     );
 };
 
-export default Review;
+const mapStateToProps = (state: { title: any }) => ({
+    title: state.title,
+});
+
+export default connect(mapStateToProps, null)(Review);

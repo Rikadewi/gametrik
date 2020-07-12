@@ -2,6 +2,7 @@ import React from 'react';
 import { IonContent, IonIcon } from '@ionic/react';
 import './PickSong.css';
 import { star } from 'ionicons/icons';
+import { connect } from 'react-redux';
 import Ellipse from './Ellipse.png';
 import Rectangle from './Rectangle.png';
 import Song1 from './song1.png';
@@ -16,8 +17,9 @@ import Song3 from './song3.png';
 
 import Header from '../../components/Header/Header';
 import NoDecorLink from '../../components/NoDecorLink/NoDecorLink';
+import { titleChange } from '../../actions/user';
 
-const Song = ({ level, src, name }: any) => {
+const Song = ({ level, src, name, ...props }: any) => {
     const temp: JSX.Element[] = [];
     for (let i = 0; i < level; i += 1) {
         temp.push(<IonIcon style={{ color: 'var(--ion-color-secondary)' }} key={i} icon={star} />);
@@ -28,8 +30,8 @@ const Song = ({ level, src, name }: any) => {
     }
 
     return (
-        <div id="song">
-            <div className="song-wrapper">
+        <div id="song" {...props}>
+            <div>
                 <NoDecorLink to="/play">
                     <img src={src} alt="song-img" />
                 </NoDecorLink>
@@ -39,7 +41,8 @@ const Song = ({ level, src, name }: any) => {
         </div>
     );
 };
-const PickSong = ({ title }: any) => {
+
+const PickSong = ({ title, handleTitleChange }: any) => {
     return (
         <>
             <IonContent>
@@ -52,10 +55,38 @@ const PickSong = ({ title }: any) => {
                     </h4>
                     <div className="pick-song-widget">
                         <div className="pick-song-wrapper">
-                            <Song level={3} src={Song1} name="Kuman" />
-                            <Song level={5} src={Song3} name="Empat" />
-                            <Song level={3} src={Song1} name="Lain" />
-                            <Song level={5} src={Song3} name="Perahu" />
+                            <Song
+                                level={3}
+                                src={Song1}
+                                name="Kuman"
+                                onClick={() => {
+                                    handleTitleChange('Kuman');
+                                }}
+                            />
+                            <Song
+                                level={5}
+                                src={Song3}
+                                name="Empat"
+                                onClick={() => {
+                                    handleTitleChange('Empat');
+                                }}
+                            />
+                            <Song
+                                level={3}
+                                src={Song1}
+                                name="Lain"
+                                onClick={() => {
+                                    handleTitleChange('Lain');
+                                }}
+                            />
+                            <Song
+                                level={5}
+                                src={Song3}
+                                name="Perahu"
+                                onClick={() => {
+                                    handleTitleChange('Perahu');
+                                }}
+                            />
                         </div>
                     </div>
                     <h4 className="pick-title" style={{ marginTop: '2em' }}>
@@ -66,10 +97,38 @@ const PickSong = ({ title }: any) => {
                         style={{ backgroundImage: `url(${Rectangle})` }}
                     >
                         <div className="pick-song-wrapper">
-                            <Song level={3} src={Song1} name="Kuman" />
-                            <Song level={5} src={Song3} name="Empat" />
-                            <Song level={3} src={Song1} name="Lain" />
-                            <Song level={5} src={Song3} name="Perahu" />
+                            <Song
+                                level={3}
+                                src={Song1}
+                                name="Kuman"
+                                onClick={() => {
+                                    handleTitleChange('Kuman');
+                                }}
+                            />
+                            <Song
+                                level={5}
+                                src={Song3}
+                                name="Empat"
+                                onClick={() => {
+                                    handleTitleChange('Empat');
+                                }}
+                            />
+                            <Song
+                                level={3}
+                                src={Song1}
+                                name="Lain"
+                                onClick={() => {
+                                    handleTitleChange('Lain');
+                                }}
+                            />
+                            <Song
+                                level={5}
+                                src={Song3}
+                                name="Perahu"
+                                onClick={() => {
+                                    handleTitleChange('Perahu');
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
@@ -78,4 +137,10 @@ const PickSong = ({ title }: any) => {
     );
 };
 
-export default PickSong;
+const mapDispatchToProps = (dispatch: any) => ({
+    handleTitleChange: (title: any) => {
+        dispatch(titleChange(title));
+    },
+});
+
+export default connect(null, mapDispatchToProps)(PickSong);
