@@ -1,11 +1,14 @@
 import React from 'react';
 import { IonContent } from '@ionic/react';
 import './Home.css';
+import { connect } from 'react-redux';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from './BackgroundHome.png';
 import NoDecorLink from '../../components/NoDecorLink/NoDecorLink';
+import { modeChange } from '../../actions/user';
+import { TRAIN, TEST, FREE } from '../../util/const';
 
-const Home = () => {
+const Home = ({ handleModeChange }: any) => {
     return (
         <>
             <IonContent>
@@ -13,15 +16,34 @@ const Home = () => {
                     <h2 className="home-title">Pilih Menu</h2>
 
                     <NoDecorLink to="/play" style={{ width: '70%' }}>
-                        <CustomButton style={{ marginBottom: '1em' }}>Free Mode</CustomButton>
+                        <CustomButton
+                            style={{ marginBottom: '1em' }}
+                            onClick={() => {
+                                handleModeChange(FREE);
+                            }}
+                        >
+                            Free Mode
+                        </CustomButton>
                     </NoDecorLink>
                     <NoDecorLink to="/train" style={{ width: '70%' }}>
-                        <CustomButton light style={{ marginBottom: '1em' }}>
+                        <CustomButton
+                            light
+                            style={{ marginBottom: '1em' }}
+                            onClick={() => {
+                                handleModeChange(TRAIN);
+                            }}
+                        >
                             Train
                         </CustomButton>
                     </NoDecorLink>
                     <NoDecorLink to="/test" style={{ width: '70%' }}>
-                        <CustomButton orange style={{ marginBottom: '1em' }}>
+                        <CustomButton
+                            orange
+                            style={{ marginBottom: '1em' }}
+                            onClick={() => {
+                                handleModeChange(TEST);
+                            }}
+                        >
                             Test
                         </CustomButton>
                     </NoDecorLink>
@@ -31,4 +53,10 @@ const Home = () => {
     );
 };
 
-export default Home;
+const mapDispatchToProps = (dispatch: any) => ({
+    handleModeChange: (mode: any) => {
+        dispatch(modeChange(mode));
+    },
+});
+
+export default connect(null, mapDispatchToProps)(Home);

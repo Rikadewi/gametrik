@@ -1,13 +1,15 @@
 import React from 'react';
 import { IonContent } from '@ionic/react';
 import './Play.css';
+import { connect } from 'react-redux';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import PlayIcon from './compass.png';
 import NoDecorLink from '../../components/NoDecorLink/NoDecorLink';
 import PlayBackground from './PlayBackground.png';
 import CompassBackground from './CompassBackground.png';
+import { TEST } from '../../util/const';
 
-const Play = () => {
+const Play = ({ mode }: any) => {
     const [init, setInit] = React.useState(true);
     const [record, setRecord] = React.useState(false);
 
@@ -65,7 +67,7 @@ const Play = () => {
                             </div>
                         )}
                     </div>
-                    <NoDecorLink to="/review">
+                    <NoDecorLink to={mode === TEST ? '/review' : '/home'}>
                         <CustomButton
                             danger
                             style={{
@@ -82,4 +84,8 @@ const Play = () => {
     );
 };
 
-export default Play;
+const mapStateToProps = (state: { mode: any }) => ({
+    mode: state.mode,
+});
+
+export default connect(mapStateToProps, null)(Play);
