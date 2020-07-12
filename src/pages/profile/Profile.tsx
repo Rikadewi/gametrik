@@ -1,15 +1,15 @@
 import React from 'react';
 import { IonContent } from '@ionic/react';
-import './Setting.css';
+import './Profile.css';
 
-const Setting = () => {
+const Profile = () => {
     return (
         <>
             <IonContent>
-                <div id="">Setting</div>
+                <div id="">Profile</div>
             </IonContent>
         </>
     );
 };
 
-export default Setting;
+export default Profile;
