@@ -6,29 +6,49 @@ import { play, pause } from 'ionicons/icons';
 import './Gallery.css';
 import ThreeDots from './more.svg';
 
-const SongRow = ({ gallery, audio }: any) => {
+const gundulAudio = new Audio(`${process.env.PUBLIC_URL}/assets/sound/gundul.mp3`);
+const doremiAudio = new Audio(`${process.env.PUBLIC_URL}/assets/sound/doremi.mp3`);
+
+const SongRow = ({ gallery, parentStateSetter, isCurrentlyPlay }: any) => {
     const [isPlay, setIsPlay] = React.useState(false);
+    React.useEffect(() => {
+        parentStateSetter(isPlay);
+    }, [parentStateSetter, isPlay]);
 
     return (
         <div className="gallery-card">
-            {isPlay ? (
+            {isPlay && (
                 <div
                     className="gallery-card-play"
                     onClick={() => {
-                        audio.pause();
+                        if (gallery.path === 'gundul.mp3') {
+                            gundulAudio.pause();
+                        } else {
+                            doremiAudio.pause();
+                        }
                         setIsPlay(false);
                     }}
                 >
                     <IonIcon icon={pause} />
                 </div>
-            ) : (
+            )}
+            {!isPlay && !isCurrentlyPlay && (
                 <div
                     className="gallery-card-play"
                     onClick={() => {
-                        audio.play();
+                        if (gallery.path === 'gundul.mp3') {
+                            gundulAudio.play();
+                        } else {
+                            doremiAudio.play();
+                        }
                         setIsPlay(true);
                     }}
                 >
+                    <IonIcon icon={play} />
+                </div>
+            )}
+            {!isPlay && isCurrentlyPlay && (
+                <div className="gallery-card-play disabled">
                     <IonIcon icon={play} />
                 </div>
             )}
@@ -54,6 +74,14 @@ const Gallery = () => {
         },
     ];
 
+    const [isCurrentlyPlay, setIsCurrentlyPlay] = React.useState(false);
+    const wrapperSetIsCurrenlyPlay = React.useCallback(
+        (val) => {
+            setIsCurrentlyPlay(val);
+        },
+        [setIsCurrentlyPlay],
+    );
+
     return (
         <>
             <IonContent>
@@ -63,12 +91,10 @@ const Gallery = () => {
                         {galerries.map((gallery) => {
                             return (
                                 <SongRow
+                                    key={`${gallery.name}-${gallery.score}`}
+                                    parentStateSetter={wrapperSetIsCurrenlyPlay}
                                     gallery={gallery}
-                                    audio={
-                                        new Audio(
-                                            `${process.env.PUBLIC_URL}/assets/sound/${gallery.path}`,
-                                        )
-                                    }
+                                    isCurrentlyPlay={isCurrentlyPlay}
                                 />
                             );
                         })}

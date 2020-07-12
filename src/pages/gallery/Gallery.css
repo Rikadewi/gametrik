@@ -34,6 +34,10 @@
     color: var(--ion-color-primary);
 }
 
+#gallery .gallery-card-play.disabled {
+    color: gray;
+}
+
 #gallery .gallery-card-text {
     flex: 1;
 }
