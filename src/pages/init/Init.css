@@ -1,0 +1,43 @@
+#init {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: 172%;
+    background-position: center;
+}
+
+#init .init-box {
+	background-color: white;
+	border-radius: 12px;
+	margin: 1em;
+	padding: 1em;
+	text-align: center;
+	color: gray;
+	box-shadow: 4px 4px 20px -10px rgba(0,0,0,0.64);
+}
+#init .init-box a {
+	color: gray;
+}
+
+#init .init-msg {
+	font-family: Montserrat-Light;
+	font-size: 0.9em;
+}
+
+#init .init-tips {
+    font-size: 0.7em;
+    color: var(--ion-color-danger);
+}
+
+#init .init-box h6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#init .init-box ion-spinner {
+    margin-right: 0.5em;
+    color: var(--ion-color-tertiary);
+}

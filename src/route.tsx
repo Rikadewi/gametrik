@@ -22,6 +22,7 @@ import PickSong from './pages/pickSong/PickSong';
 import Gallery from './pages/gallery/Gallery';
 import Review from './pages/review/Review';
 import Profile from './pages/profile/Profile';
+import Init from './pages/init/Init';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -55,37 +56,40 @@ const App: React.FC = () => (
         <PersistGate persistor={persistor}>
             <IonApp>
                 <IonReactRouter>
-                    <IonTabs>
-                        <IonRouterOutlet>
-                            <Switch>
-                                <Route path="/" render={() => <Redirect to="/home" />} exact />
+                    <Switch>
+                        <Route path="/init" component={Init} exact />
+                        <IonTabs>
+                            <IonRouterOutlet>
+                                <Switch>
+                                    <Route path="/" render={() => <Redirect to="/home" />} exact />
 
-                                {/* Menu Page */}
-                                <Route path="/home" component={Home} exact />
-                                <Route path="/train" component={Train} exact />
-                                <Route path="/test" component={Test} exact />
-                                <Route path="/play" component={Play} exact />
-                                <Route path="/profile" component={Profile} exact />
-                                <Route path="/gallery" component={Gallery} exact />
-                                <Route path="/Review" component={Review} exact />
-                            </Switch>
-                        </IonRouterOutlet>
+                                    {/* Menu Page */}
+                                    <Route path="/home" component={Home} exact />
+                                    <Route path="/train" component={Train} exact />
+                                    <Route path="/test" component={Test} exact />
+                                    <Route path="/play" component={Play} exact />
+                                    <Route path="/profile" component={Profile} exact />
+                                    <Route path="/gallery" component={Gallery} exact />
+                                    <Route path="/review" component={Review} exact />
+                                </Switch>
+                            </IonRouterOutlet>
 
-                        <IonTabBar slot="bottom">
-                            <IonTabButton tab="play" href="/home">
-                                <IonIcon icon={playCircle} />
-                                <IonLabel>Play</IonLabel>
-                            </IonTabButton>
-                            <IonTabButton tab="gallery" href="/gallery">
-                                <IonIcon icon={musicalNotes} />
-                                <IonLabel>Gallery</IonLabel>
-                            </IonTabButton>
-                            <IonTabButton tab="profile" href="/profile">
-                                <IonIcon icon={personCircle} />
-                                <IonLabel>Profile</IonLabel>
-                            </IonTabButton>
-                        </IonTabBar>
-                    </IonTabs>
+                            <IonTabBar slot="bottom">
+                                <IonTabButton tab="play" href="/home">
+                                    <IonIcon icon={playCircle} />
+                                    <IonLabel>Play</IonLabel>
+                                </IonTabButton>
+                                <IonTabButton tab="gallery" href="/gallery">
+                                    <IonIcon icon={musicalNotes} />
+                                    <IonLabel>Gallery</IonLabel>
+                                </IonTabButton>
+                                <IonTabButton tab="profile" href="/profile">
+                                    <IonIcon icon={personCircle} />
+                                    <IonLabel>Profile</IonLabel>
+                                </IonTabButton>
+                            </IonTabBar>
+                        </IonTabs>
+                    </Switch>
                 </IonReactRouter>
             </IonApp>
         </PersistGate>
