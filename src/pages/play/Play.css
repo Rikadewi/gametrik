@@ -58,6 +58,10 @@
     font-weight: bold;
 }
 
+#play ion-spinner {
+    color: white;
+}
+
 /* Alert */
 #play-alert {
     position: absolute;

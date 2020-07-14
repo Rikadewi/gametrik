@@ -29,6 +29,10 @@
 }
 
 /* Song */
+#song {
+    text-align: center;
+}
+
 #song .song-wrapper{
     display: flex;
     flex-direction: column;
@@ -37,5 +41,15 @@
 
 #song p.song-name {
     margin-top: 0;
+    width: 10.5em;
 }
 
+#song .song-img {
+    background-size: cover;
+    background-position: center;
+    height: 12em;
+    width: 8.5em;
+    border-radius: 0.5em;
+    box-shadow: 4px 4px 20px -8px rgba(0,0,0,0.7);
+    margin: 1em;
+}

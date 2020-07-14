@@ -1,9 +1,8 @@
 import React from 'react';
-import { IonContent } from '@ionic/react';
+import { IonContent, IonSpinner } from '@ionic/react';
 import './Play.css';
 import { connect } from 'react-redux';
 import CustomButton from '../../components/CustomButton/CustomButton';
-import PlayIcon from './compass.png';
 import NoDecorLink from '../../components/NoDecorLink/NoDecorLink';
 import PlayBackground from './PlayBackground.png';
 import CompassBackground from './CompassBackground.png';
@@ -57,7 +56,7 @@ const Play = ({ mode }: any) => {
                             className="play-icon"
                             style={{ backgroundImage: `url(${CompassBackground})` }}
                         >
-                            <img src={PlayIcon} alt="play" />
+                            <IonSpinner name="lines" />
                         </div>
                         <h1 className="play-title">Yuk Pukul Gametrikmu!</h1>
                         {record && (
