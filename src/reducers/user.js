@@ -1,8 +1,9 @@
-import { MODE_UPDATE, TITLE_UPDATE } from '../actions/types';
+import { MODE_UPDATE, TITLE_UPDATE, INIT_UPDATE } from '../actions/types';
 
 const initialState = {
     mode: '',
     title: '',
+    init: true,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 title: action.title,
+            };
+        case INIT_UPDATE:
+            return {
+                ...state,
+                init: action.init,
             };
         default:
             return state;

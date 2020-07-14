@@ -1,4 +1,4 @@
-import { MODE_UPDATE, TITLE_UPDATE } from './types';
+import { MODE_UPDATE, TITLE_UPDATE, INIT_UPDATE } from './types';
 
 export const modeChange = (mode) => (dispatch) => {
     dispatch({
@@ -11,5 +11,12 @@ export const titleChange = (title) => (dispatch) => {
     dispatch({
         type: TITLE_UPDATE,
         title,
+    });
+};
+
+export const initChange = (init) => (dispatch) => {
+    dispatch({
+        type: INIT_UPDATE,
+        init,
     });
 };

@@ -1,10 +1,14 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { IonContent, IonSpinner } from '@ionic/react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Background from '../home/BackgroundHome.png';
 import './Init.css';
-import NoDecorLink from '../../components/NoDecorLink/NoDecorLink';
+import { initChange } from '../../actions/user';
 
-const Init = () => {
+const Init = ({ init, handleInitChange }: any) => {
     const width = window.innerWidth;
     const height = window.innerHeight;
     const [isMobile, setIsMobile] = React.useState(true);
@@ -21,6 +25,7 @@ const Init = () => {
 
     return (
         <>
+            {!init && <Redirect to="/home" />}
             <IonContent>
                 <div id="init" style={{ backgroundImage: `url(${Background})` }}>
                     <div className="init-box">
@@ -41,7 +46,12 @@ const Init = () => {
                                 </p>
                             </>
                         ) : (
-                            <NoDecorLink to="/home">
+                            <div
+                                onClick={() => {
+                                    handleInitChange(false);
+                                }}
+                                style={{ cursor: 'pointer' }}
+                            >
                                 <h6>Gametrik Tidak Ditemukan</h6>
                                 <p className="init-msg">
                                     Sebagai prototype, kami menyediakan sebuah mode demo. Tekan
@@ -52,7 +62,7 @@ const Init = () => {
                                     Semua nilai pada test mode akan didapatkan secara random, dan
                                     terdapat dummy data yang dapat dicoba untuk kelancaran aplikasi
                                 </p>
-                            </NoDecorLink>
+                            </div>
                         )}
                     </div>
                 </div>
@@ -61,4 +71,14 @@ const Init = () => {
     );
 };
 
-export default Init;
+const mapStateToProps = (state: { init: any }) => ({
+    init: state.init,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+    handleInitChange: (init: any) => {
+        dispatch(initChange(init));
+    },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Init);

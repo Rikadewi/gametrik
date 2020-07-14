@@ -61,7 +61,7 @@ const App: React.FC = () => (
                         <IonTabs>
                             <IonRouterOutlet>
                                 <Switch>
-                                    <Route path="/" render={() => <Redirect to="/home" />} exact />
+                                    <Route path="/" render={() => <Redirect to="/init" />} exact />
 
                                     {/* Menu Page */}
                                     <Route path="/home" component={Home} exact />

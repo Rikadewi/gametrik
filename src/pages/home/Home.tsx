@@ -2,15 +2,17 @@ import React from 'react';
 import { IonContent } from '@ionic/react';
 import './Home.css';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Background from './BackgroundHome.png';
 import NoDecorLink from '../../components/NoDecorLink/NoDecorLink';
 import { modeChange } from '../../actions/user';
 import { TRAIN, TEST, FREE } from '../../util/const';
 
-const Home = ({ handleModeChange }: any) => {
+const Home = ({ init, handleModeChange }: any) => {
     return (
         <>
+            {init && <Redirect to="/init" />}
             <IonContent>
                 <div id="home" style={{ backgroundImage: `url(${Background})` }}>
                     <h2 className="home-title">Pilih Menu</h2>
@@ -53,10 +55,14 @@ const Home = ({ handleModeChange }: any) => {
     );
 };
 
+const mapStateToProps = (state: { init: any }) => ({
+    init: state.init,
+});
+
 const mapDispatchToProps = (dispatch: any) => ({
     handleModeChange: (mode: any) => {
         dispatch(modeChange(mode));
     },
 });
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
